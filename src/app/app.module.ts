@@ -8,22 +8,21 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FlightService } from './flight-booking/services/abstract-flight.service';
 import { DefaultFlightSearchService } from './flight-booking/services/flight-search.service';
 import { AdvancedFlightSearchService } from './flight-booking/services/advanced-flight-search.service';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { OrtPipe } from './ort.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
     SidebarComponent,
     NavbarComponent,
-    FlightSearchComponent,
-    OrtPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    FlightBookingModule
   ],
   providers: [
     {
