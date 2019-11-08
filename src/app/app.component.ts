@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'flight-app',
+  selector: 'app-flight',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent  {
-  title = 'Hello FH!';
-  from: string;
-
-  setTitle(): void {
-    this.title = 'Hello World!';
-  }
+export class AppComponent {
+  title = 'start';
 }
