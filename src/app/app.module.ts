@@ -10,13 +10,15 @@ import { DefaultFlightSearchService } from './flight-booking/services/flight-sea
 import { AdvancedFlightSearchService } from './flight-booking/services/advanced-flight-search.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OrtPipe } from './ort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,    
     SidebarComponent,
     NavbarComponent,
-    FlightSearchComponent
+    FlightSearchComponent,
+    OrtPipe
   ],
   imports: [
     BrowserModule,
