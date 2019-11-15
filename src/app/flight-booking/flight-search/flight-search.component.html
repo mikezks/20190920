@@ -23,39 +23,20 @@
 
 </div>
 
-<div class="card" *ngIf="flights.length">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        *ngFor="let flight of flights"
-        [class.active]="flight === selected">
-        <td>{{flight.id }}</td>
-        <td>{{flight.from | ort:'short'}}</td>
-        <td>{{flight.to | ort}}</td>
-        <td>{{flight.date | date:'dd.MM.yyyy'}}</td>
-        <td>
-          <a (click)="selectFlight(flight)">
-            Select
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="row">
+  <div
+    *ngFor="let flight of flights"
+    class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <app-flight-card
+        [item]="flight"
+        [selected]="basket[flight.id]"
+        (selectedChange)="basket[flight.id] = $event">
+      </app-flight-card>
+  </div>
 </div>
 
-<div class="card">
-  <div *ngIf="selected">
-    <pre class="">{{
-      selected | json
-    }}</pre>
-  </div>
+<div>
+  <pre class="jumbotron">
+    {{basket | json}}
+  </pre>
 </div>

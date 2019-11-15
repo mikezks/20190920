@@ -24,6 +24,11 @@ export class FlightSearchComponent {
 
   selected: Flight;
 
+  basket: object = {
+    '3': true,
+    '5': true
+  };
+
   constructor(private service: FlightService) {}
 
   search(): void {
