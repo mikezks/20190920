@@ -1,0 +1,29 @@
+<form [formGroup]="editForm">
+    <div class="form-group">
+        <label>Id:</label>
+        <input formControlName="id" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>From:</label>
+        <input formControlName="from" class="form-control">
+    </div>
+    <pre *ngIf="editForm.controls.from.hasError('required')">Pflichtfeld</pre>
+    <pre *ngIf="editForm.controls.from.hasError('minlength')">Bitte Mindestlänge beachten</pre>
+    <pre *ngIf="editForm.controls.from.hasError('city')">Cityname {{
+        editForm.controls.from.errors.city.actualCity
+    }} nicht erlaubt</pre>
+    <div class="form-group">
+        <label>To:</label>
+        <input formControlName="to" class="form-control">
+    </div>
+    <pre *ngIf="editForm.controls.to.hasError('city')">Cityname {{
+            editForm.controls.to.errors.city.actualCity
+        }} nicht erlaubt</pre>
+    <div class="form-group">
+        <label>Date:</label>
+        <input formControlName="date" class="form-control">
+    </div>
+    <div class="form-group">
+        <button (click)="save()" class="btn btn-default">Save</button>
+    </div>
+</form>

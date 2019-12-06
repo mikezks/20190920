@@ -2,21 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightCardComponent } from './flight-card/flight-card.component';
+import { FlightEditComponent } from './flight-edit/flight-edit.component';
 
 @NgModule({
   declarations: [
     FlightSearchComponent,
-    FlightCardComponent
+    FlightCardComponent,
+    FlightEditComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
-    FlightSearchComponent
+    FlightSearchComponent,
+    FlightEditComponent
   ]
 })
 export class FlightBookingModule { }
