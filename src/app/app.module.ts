@@ -11,18 +11,23 @@ import { AdvancedFlightSearchService } from './flight-booking/services/advanced-
 import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    FlightBookingModule
+    FlightBookingModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [
     {

@@ -19,8 +19,8 @@ import { FlightEditComponent } from './flight-edit/flight-edit.component';
     ReactiveFormsModule
   ],
   exports: [
-    FlightSearchComponent,
-    FlightEditComponent
+    /* FlightSearchComponent,
+    FlightEditComponent */
   ]
 })
 export class FlightBookingModule { }
