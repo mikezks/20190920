@@ -16,8 +16,16 @@
         <pre *ngIf="f?.controls?.to?.hasError('required')">Pflichtfeld</pre>
       </div>
       <div class="form-group">
+        <label for="to">Id</label>
+        <input class="form-control" name="id" [(ngModel)]="id" type="number" min="3" />
+        <pre *ngIf="f?.controls?.id?.hasError('min')">Min 3</pre>
+      </div>
+      <div class="form-group">
         <button [disabled]="!f?.valid" (click)="search()" class="btn btn-default">
           Search
+        </button>
+        <button (click)="logValidator(f)" class="btn btn-default">
+          log
         </button>
       </div>
     </form>

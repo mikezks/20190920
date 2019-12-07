@@ -9,6 +9,7 @@ import {
 import { Observable, timer } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { FlightService } from '../services/abstract-flight.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-flight-search',
@@ -17,6 +18,7 @@ import { FlightService } from '../services/abstract-flight.service';
 export class FlightSearchComponent {
   from = 'Hamburg';
   to = 'Graz';
+  id = 4;
 
   public get flights(): Flight[] {
     return this.service.flights;
@@ -37,5 +39,9 @@ export class FlightSearchComponent {
 
   selectFlight(flight: Flight): void {
     this.selected = flight;
+  }
+
+  logValidator(f: NgForm): void {
+    console.log(f);
   }
 }
