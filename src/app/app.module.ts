@@ -26,7 +26,7 @@ import { ROUTES } from './app.routes';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    FlightBookingModule,
+    //FlightBookingModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
