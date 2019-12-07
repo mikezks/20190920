@@ -5,6 +5,7 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightCardComponent } from './flight-card/flight-card.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { FlightBookingRoutingModule } from './flight-booking-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FlightEditComponent } from './flight-edit/flight-edit.component';
     CommonModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlightBookingRoutingModule
   ],
   exports: [
     /* FlightSearchComponent,
