@@ -6,12 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightCardComponent } from './flight-card/flight-card.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { FlightBookingRoutingModule } from './flight-booking-routing.module';
+import { FlightTypeaheadComponent } from './flight-typeahead/flight-typeahead.component';
 
 @NgModule({
   declarations: [
     FlightSearchComponent,
     FlightCardComponent,
-    FlightEditComponent
+    FlightEditComponent,
+    FlightTypeaheadComponent
   ],
   imports: [
     CommonModule,
