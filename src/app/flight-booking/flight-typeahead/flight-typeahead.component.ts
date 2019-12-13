@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { timer, Subscription, Observable } from 'rxjs';
-import { map, filter, take, switchMap } from 'rxjs/operators';
+import { map, filter, take, switchMap, debounceTime } from 'rxjs/operators';
 import { FlightService } from '../services/abstract-flight.service';
 import { Flight } from '../../model/flight';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
@@ -16,6 +16,10 @@ export class FlightTypeaheadComponent implements OnInit, OnDestroy {
   timerSubscription: Subscription;
   timerControl = new FormControl();
 
+  typeaheadControl = new FormControl();
+  flights$: Observable<Flight[]>;
+  loading: boolean;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -27,15 +31,23 @@ export class FlightTypeaheadComponent implements OnInit, OnDestroy {
           //switchMap(num => this.load('Graz', 'Hamburg'))
         );
 
-    this.timerSubscription = 
+    /* this.timerSubscription = 
       this.timer$.subscribe(console.log);
 
-    this.timer$.subscribe(num => this.timerControl.setValue(num));
+    this.timer$.subscribe(num => this.timerControl.setValue(num)); */
+
+    this.flights$ =
+      this.typeaheadControl.valueChanges
+          .pipe(
+            filter(value => value.length > 2),
+            debounceTime(300),
+            switchMap(from => this.load(from))
+          );
   }
 
-  load(from: string, to: string): Observable<Flight[]> {
+  load(from: string): Observable<Flight[]> {
     const url = 'http://www.angular.at/api/flight';
-    const params = new HttpParams().set('from', from).set('to', to);
+    const params = new HttpParams().set('from', from);
     const headers = new HttpHeaders().set('Accept', 'application/json');
 
     return this.http
