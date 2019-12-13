@@ -1,1 +1,11 @@
-<p>flight-typeahead works!</p>
+<div
+    class="card"
+    *ngIf="{ timer: timer$ | async } as componentData">
+    <div class="header">
+        <h1 class="title">Flight Typeahead</h1>
+    </div>
+    <div class="content">
+        <input [formControl]="timerControl" type="text" class="form-control">
+        {{ componentData.timer }}
+    </div>
+</div>
